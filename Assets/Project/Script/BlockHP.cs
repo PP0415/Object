@@ -13,6 +13,8 @@ public class BlockHP : MonoBehaviour
         curenntHP -= damage;
         if (curenntHP <= 0)
         {
+            gameState.blockDeleteCount++;
+            if (gameState.blockDeleteCount % 4 == 0) gameState.deleteBlockEvent.Invoke();
             Destroy(gameObject);
         }
     }
