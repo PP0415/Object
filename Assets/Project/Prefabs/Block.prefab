@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockMove
   TF: {fileID: 1981332374371705879}
+  gameState: {fileID: 11400000, guid: 0d1f9ba81a4fe8f46885ade2a2165204, type: 2}
 --- !u!114 &6948494826003512016
 MonoBehaviour:
   m_ObjectHideFlags: 0

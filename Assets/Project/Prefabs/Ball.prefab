@@ -112,10 +112,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BallDirector
   speed: 200
   damage: 180
-  preTime: 10
+  preTime: 500
   myRB2D: {fileID: 7456419225420521706}
   myTF: {fileID: 5483759389035538847}
   ball: {fileID: 3277090464017630233}
+  gameState: {fileID: 11400000, guid: 0d1f9ba81a4fe8f46885ade2a2165204, type: 2}
 --- !u!212 &8042074447942827830
 SpriteRenderer:
   m_ObjectHideFlags: 0

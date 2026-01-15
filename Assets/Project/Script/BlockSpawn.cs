@@ -7,7 +7,7 @@ public class BlockSpawn : MonoBehaviour
     private float preTime = 0;
     void Update()
     {
-        if (gameState.passTime > preTime + 6f)
+        if (gameState.passTime > preTime + 3f)
         {
             for (int i = 0; i < 4; i++)
             {

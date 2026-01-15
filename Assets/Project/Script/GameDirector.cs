@@ -8,7 +8,8 @@ public class GameDirector : MonoBehaviour
     [SerializeField] TMP_Text timeText;
     void Start()
     {
-        gameState.passTime = 0f;
+        Time.timeScale = 1;
+        gameState.GameStateReset();
     }
     void Update()
     {

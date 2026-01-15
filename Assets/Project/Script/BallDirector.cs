@@ -9,6 +9,7 @@ class BallDirector : MonoBehaviour
     // Transformコンポーネントを保持しておくための変数を追加
     [SerializeField] private Transform myTF;
     [SerializeField] private GameObject ball;
+    [SerializeField] private GameState gameState;
 
     void Start()
     {
@@ -51,7 +52,7 @@ class BallDirector : MonoBehaviour
     async UniTask RemoveBall()
     {
         ball.SetActive(false);
-        await UniTask.Delay((int)(preTime * 1000));
+        await UniTask.Delay((int)(gameState.passTime * preTime));
         ball.transform.position = new Vector3(0, -300, 0);
         ball.SetActive(true);
         myRB2D.linearVelocity = new Vector2(Random.Range(-1f, 1f), 1) * speed;

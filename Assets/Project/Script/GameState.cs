@@ -5,5 +5,13 @@ public class GameState : ScriptableObject
 {
     public float passTime;
     public int blockDeleteCount;
-    public UnityEvent deleteBlockEvent;
+    public bool isGameOver;
+    public UnityEvent deleteBlockEvent, gameOverEvent;
+
+    public void GameStateReset()
+    {
+        passTime = 0f;
+        blockDeleteCount = 0;
+        isGameOver = false;
+    }
 }
