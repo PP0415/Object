@@ -1,15 +1,15 @@
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-class BallDirector : MonoBehaviour
+public class BallDirector : MonoBehaviour
 {
-    [SerializeField] private float speed = 200f;
-    [SerializeField] private float damage = 180;
-    [SerializeField] private float preTime = 0f;
-    [SerializeField] private Rigidbody2D myRB2D;
+    public float speed = 200f;
+    public float damage = 180;
+    public float preTime = 0f;
+    public Rigidbody2D myRB2D;
     // Transformコンポーネントを保持しておくための変数を追加
-    [SerializeField] private Transform myTF;
-    [SerializeField] private GameObject ball;
-    [SerializeField] private GameState gameState;
+    public Transform myTF;
+    public GameObject ball;
+    public GameState gameState;
 
     void Start()
     {
@@ -24,7 +24,7 @@ class BallDirector : MonoBehaviour
     // 衝突したときに呼ばれる
     void OnCollisionEnter2D(Collision2D collision2D)
     {
-        // プレイヤーに当たったときに、跳ね返る方向を変える
+        // プレイヤーに当たったときに、跳ね返る方向を変える 
         if (collision2D.gameObject.CompareTag("Bar"))
         {
             // プレイヤーの位置を取得
@@ -36,9 +36,7 @@ class BallDirector : MonoBehaviour
             // 速度を変更
             myRB2D.linearVelocity = direction * speed;
         }
-
         BallCollisionEfect(collision2D);
-
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -52,13 +50,14 @@ class BallDirector : MonoBehaviour
     async UniTask RemoveBall()
     {
         ball.SetActive(false);
-        await UniTask.Delay((int)(gameState.passTime * preTime));
+        if (await UniTask.Delay((int)(gameState.passTime * preTime), cancellationToken: this.GetCancellationTokenOnDestroy()).SuppressCancellationThrow())
+        { return; }
         ball.transform.position = new Vector3(0, -300, 0);
         ball.SetActive(true);
         myRB2D.linearVelocity = new Vector2(Random.Range(-1f, 1f), 1) * speed;
     }
     // 衝突したときに呼ばれる
-    virtual public void BallCollisionEfect(Collision2D collision2D)
+    public virtual void BallCollisionEfect(Collision2D collision2D)
     {
         if (collision2D.gameObject.CompareTag("Block"))
         {
