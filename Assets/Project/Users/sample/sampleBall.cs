@@ -1,5 +1,5 @@
 using UnityEngine;
-public class uyamaBall : BallDirector
+public class sampleBall : BallDirector
 {
     public override void BallCollisionEfect(Collision2D collision2D)
     {
