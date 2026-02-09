@@ -27,7 +27,9 @@ public class SlipDamageBall : BallDirector
         for (int i = 0; i < slipCount; i++)
         {
             await UniTask.Delay((int)(slipInterval * 1000));
-            block.TakeDamage(slipDamage);
+            if(block==null)
+                break;
+            block?.TakeDamage(slipDamage);
         }
     }
 }
