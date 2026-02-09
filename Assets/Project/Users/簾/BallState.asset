@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df07dc1a419cb424f9d7f9b940f39c45, type: 3}
   m_Name: BallState
   m_EditorClassIdentifier: Assembly-CSharp::BallState
-  ballPrefab: {fileID: 3277090464017630233, guid: 024bdab086c5f8940a5535f3d10a4d01, type: 3}
+  ballPrefab: {fileID: 2135874883538856904, guid: 14f61687d1c84ab44bdc451f52374af4, type: 3}
   ballImage: {fileID: 21300000, guid: ed1a916335391c14b8df8125f348f4ba, type: 3}
+  ballName: 
   ballExplain: "\u305F\u3060\u306E\u30DC\u30FC\u30EB"
