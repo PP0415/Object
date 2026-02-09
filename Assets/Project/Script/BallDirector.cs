@@ -49,6 +49,7 @@ public class BallDirector : MonoBehaviour
 
     async UniTask RemoveBall()
     {
+        BallRemoveEfect();
         ball.SetActive(false);
         if (await UniTask.Delay((int)(gameState.passTime * preTime), cancellationToken: this.GetCancellationTokenOnDestroy()).SuppressCancellationThrow())
         { return; }
@@ -63,5 +64,10 @@ public class BallDirector : MonoBehaviour
         {
             collision2D.gameObject.GetComponent<BlockHP>().TakeDamage(damage);
         }
+    }
+
+    public virtual void BallRemoveEfect()
+    {
+
     }
 }
